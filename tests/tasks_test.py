@@ -1,7 +1,6 @@
 import unittest
 import json
 import os
-from typing import List
 
 from src.protocol import Task, TaskProtocol
 from src.sources import GeneratorSource, FileSource, APISource
@@ -47,7 +46,7 @@ class TestTaskSystem(unittest.TestCase):
     def test_api_source_init(self):
         source = APISource("http://fake.url")
         tasks = source.get_tasks()
-        self.assertIsInstance(tasks, List)
+        self.assertIsInstance(tasks, list)
         self.assertTrue(len(tasks) > 0)
 
     def test_protocol_compliance(self):
